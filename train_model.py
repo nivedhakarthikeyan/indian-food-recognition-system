@@ -25,6 +25,8 @@ dataset = datasets.ImageFolder(DATA_DIR, transform=transform)
 loader = torch.utils.data.DataLoader(dataset, batch_size=16, shuffle=True)
 
 classes = dataset.classes
+with open("class_mapping.json", "w") as f:
+    json.dump(classes, f)
 num_classes = len(classes)
 
 print("Classes:", classes)
